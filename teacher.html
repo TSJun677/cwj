@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师控制面板</title>
+</head>
+<body>
+<h1>欢迎你，{$teacher.teacher_name}老师！</h1>
+<form name="teacher_take_attendance" action="teacherTakeAttendance" method="post">
+    <input type="hidden" name="teacher_id" value={$teacher.teacher_id}>
+    请选择课堂：
+    {if $classes != null}
+        {foreach $classes as $key => $class}
+        <input id={$class.class_id} type="radio" name="class_id" value={$class.class_id}><label for={$class.class_id}>{$class.class_id} {$class.class_name} {$class.academic_term}</label>
+        {/foreach}
+    {else/}
+        无
+    {/if}
+    <br/>
+    <input type="submit" name="take_attendance" value="开始签到"/>
+</form>
+</body>
+</html>

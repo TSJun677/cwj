@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开始签到</title>
+</head>
+<body>
+<h1>签到码：{$attendanceCode}</h1>
+<form action="teacherFinal" method="post">
+    <input type="hidden" name="class_id" value="" />
+    <input type="submit" value="结束签到，导出名单" />
+</form>
+
+<h2>未签到学生列表</h2>
+<ul>
+{foreach $studentsAbsent as $student}
+    <li>{$student.student_name}</li>
+{/foreach}
+</ul>
+</body>
+</html>

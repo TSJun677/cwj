@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生签到面板</title>
+</head>
+<body>
+<h1>欢迎你，{$student.student_name}！</h1>
+当前可签到课堂：{$class.class_name|default='无'} {$class.academic_term}
+<form name="student_take_attendance" action="studentTakeAttendance" method="post">
+    <input type="hidden" name="student_id" value={$student.student_id} />
+    <label for="ac">签到码：</label><input id="ac" type="text" name="attendance_code" />
+    <input type="submit" name="take_attendance" value="签到" />
+</form>
+</body>
+</html>
